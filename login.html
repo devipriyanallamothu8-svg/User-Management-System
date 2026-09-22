@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>User Login</title>
+
+    <style>
+
+        /* ---------- GENERAL ---------- */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", "Poppins", Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background:
+                radial-gradient(circle at top left, #6c63ff, transparent 35%),
+                radial-gradient(circle at bottom right, #00c6ff, transparent 35%),
+                linear-gradient(135deg, #141e30, #243b55);
+
+            overflow: hidden;
+        }
+
+
+        /* ---------- BACKGROUND CIRCLES ---------- */
+
+        body::before {
+            content: "";
+
+            position: absolute;
+
+            width: 300px;
+            height: 300px;
+
+            background: rgba(255, 255, 255, 0.08);
+
+            border-radius: 50%;
+
+            top: -100px;
+            left: -100px;
+
+            animation: float 6s ease-in-out infinite;
+        }
+
+        body::after {
+            content: "";
+
+            position: absolute;
+
+            width: 250px;
+            height: 250px;
+
+            background: rgba(255, 255, 255, 0.06);
+
+            border-radius: 50%;
+
+            bottom: -80px;
+            right: -70px;
+
+            animation: float 7s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+
+        }
+
+
+        /* ---------- LOGIN CARD ---------- */
+
+        .login-card {
+
+            position: relative;
+            z-index: 2;
+
+            width: 420px;
+
+            padding: 45px;
+
+            border-radius: 25px;
+
+            background: rgba(255, 255, 255, 0.12);
+
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            border: 1px solid rgba(255, 255, 255, 0.25);
+
+            box-shadow:
+                0 25px 60px rgba(0, 0, 0, 0.35);
+
+            color: white;
+
+            animation: appear 0.8s ease;
+        }
+
+        @keyframes appear {
+
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        /* ---------- ICON ---------- */
+
+        .login-icon {
+
+            width: 80px;
+            height: 80px;
+
+            margin: 0 auto 20px;
+
+            border-radius: 50%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 36px;
+
+            background:
+                linear-gradient(135deg, #6c63ff, #00c6ff);
+
+            box-shadow:
+                0 10px 30px rgba(0, 198, 255, 0.3);
+        }
+
+
+        /* ---------- HEADING ---------- */
+
+        .login-card h1 {
+
+            text-align: center;
+
+            font-size: 32px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.5px;
+
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+
+            text-align: center;
+
+            color: rgba(255, 255, 255, 0.75);
+
+            font-size: 14px;
+
+            margin-bottom: 32px;
+        }
+
+
+        /* ---------- INPUT ---------- */
+
+        .input-group {
+
+            margin-bottom: 22px;
+        }
+
+        .input-group label {
+
+            display: block;
+
+            margin-bottom: 8px;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .input-wrapper {
+
+            position: relative;
+        }
+
+        .input-wrapper .icon {
+
+            position: absolute;
+
+            left: 15px;
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            font-size: 18px;
+        }
+
+        .input-wrapper input {
+
+            width: 100%;
+
+            padding: 14px 15px 14px 45px;
+
+            border: 1px solid rgba(255, 255, 255, 0.25);
+
+            border-radius: 12px;
+
+            outline: none;
+
+            background: rgba(255, 255, 255, 0.1);
+
+            color: white;
+
+            font-size: 15px;
+
+            transition: 0.3s;
+        }
+
+        .input-wrapper input::placeholder {
+
+            color: rgba(255, 255, 255, 0.55);
+        }
+
+        .input-wrapper input:focus {
+
+            border-color: #00c6ff;
+
+            background: rgba(255, 255, 255, 0.15);
+
+            box-shadow:
+                0 0 0 3px rgba(0, 198, 255, 0.15);
+        }
+
+
+        /* ---------- LOGIN BUTTON ---------- */
+
+        .login-btn {
+
+            width: 100%;
+
+            padding: 15px;
+
+            margin-top: 5px;
+
+            border: none;
+
+            border-radius: 12px;
+
+            background:
+                linear-gradient(135deg, #6c63ff, #00c6ff);
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.5px;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+
+            box-shadow:
+                0 8px 20px rgba(0, 198, 255, 0.2);
+        }
+
+        .login-btn:hover {
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 12px 28px rgba(0, 198, 255, 0.35);
+        }
+
+        .login-btn:active {
+
+            transform: translateY(0);
+        }
+
+
+        /* ---------- DEMO INFO ---------- */
+
+        .demo {
+
+            margin-top: 25px;
+
+            padding: 13px;
+
+            border-radius: 10px;
+
+            text-align: center;
+
+            background: rgba(255, 255, 255, 0.08);
+
+            color: rgba(255, 255, 255, 0.75);
+
+            font-size: 12px;
+
+            line-height: 1.6;
+        }
+
+        .demo strong {
+
+            color: white;
+
+            font-size: 13px;
+        }
+
+
+        /* ---------- BACK LINK ---------- */
+
+        .back {
+
+            display: block;
+
+            text-align: center;
+
+            margin-top: 22px;
+
+            color: #ffffff;
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            transition: 0.3s;
+        }
+
+        .back:hover {
+
+            color: #00c6ff;
+
+            transform: translateX(-3px);
+        }
+
+
+        /* ---------- MOBILE ---------- */
+
+        @media (max-width: 500px) {
+
+            .login-card {
+
+                width: 90%;
+
+                padding: 32px 25px;
+            }
+
+            .login-card h1 {
+
+                font-size: 27px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div class="login-card">
+
+
+        <!-- ICON -->
+
+        <div class="login-icon">
+            🔐
+        </div>
+
+
+        <!-- TITLE -->
+
+        <h1>Welcome Back</h1>
+
+        <p class="subtitle">
+            Sign in to your User Management System
+        </p>
+
+
+        <!-- LOGIN FORM -->
+
+        <form action="login" method="post">
+
+
+            <!-- USERNAME -->
+
+            <div class="input-group">
+
+                <label for="username">
+                    Username
+                </label>
+
+                <div class="input-wrapper">
+
+                    <span class="icon">👤</span>
+
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        placeholder="Enter your username"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- PASSWORD -->
+
+            <div class="input-group">
+
+                <label for="password">
+                    Password
+                </label>
+
+                <div class="input-wrapper">
+
+                    <span class="icon">🔑</span>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter your password"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- BUTTON -->
+
+            <button type="submit" class="login-btn">
+                Login →
+            </button>
+
+
+        </form>
+
+
+        <!-- DEMO -->
+
+        <div class="demo">
+
+            <strong>Demo Account</strong><br>
+
+            Username: admin &nbsp; | &nbsp; Password: 1234
+
+        </div>
+
+
+        <!-- BACK -->
+
+        <a href="index.html" class="back">
+            ← Back to Dashboard
+        </a>
+
+
+    </div>
+
+
+</body>
+
+</html>

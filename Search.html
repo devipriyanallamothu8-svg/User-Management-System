@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Search User</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: "Segoe UI", Arial, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #141e30, #243b55);
+            color: white;
+        }
+
+        .card {
+            width: 430px;
+            padding: 45px;
+            text-align: center;
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 25px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.35);
+        }
+
+        .icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            font-size: 35px;
+            background: linear-gradient(135deg, #6c63ff, #00c6ff);
+        }
+
+        h1 {
+            margin-bottom: 10px;
+            font-size: 30px;
+        }
+
+        p {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 10px;
+            outline: none;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            font-size: 15px;
+            margin-bottom: 18px;
+        }
+
+        input::placeholder {
+            color: rgba(255,255,255,0.5);
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #6c63ff, #00c6ff);
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,198,255,0.35);
+        }
+
+        a {
+            display: block;
+            margin-top: 20px;
+            color: #00c6ff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+
+        <div class="icon">🔍</div>
+
+        <h1>Search User</h1>
+
+        <p>
+            Enter a username to search for a registered user.
+        </p>
+
+        <form action="search" method="post">
+
+            <input
+                type="text"
+                name="username"
+                placeholder="Enter username"
+                required>
+
+            <button type="submit">
+                Search User →
+            </button>
+
+        </form>
+
+        <a href="index.html">← Back to Dashboard</a>
+
+    </div>
+
+</body>
+</html>

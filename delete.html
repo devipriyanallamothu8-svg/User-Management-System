@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete User</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", "Poppins", Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background:
+                radial-gradient(circle at top left, #6c63ff, transparent 35%),
+                radial-gradient(circle at bottom right, #00c6ff, transparent 35%),
+                linear-gradient(135deg, #141e30, #243b55);
+        }
+
+        .card {
+            width: 420px;
+            padding: 45px;
+
+            text-align: center;
+
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 25px;
+
+            box-shadow: 0 25px 60px rgba(0,0,0,0.35);
+
+            color: white;
+        }
+
+        .icon {
+            width: 80px;
+            height: 80px;
+
+            margin: 0 auto 20px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            border-radius: 50%;
+
+            font-size: 35px;
+
+            background: linear-gradient(135deg,#ff5f6d,#ffc371);
+        }
+
+        h1 {
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: rgba(255,255,255,0.75);
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        .warning {
+            background: rgba(255,193,7,0.12);
+            border: 1px solid rgba(255,193,7,0.3);
+
+            padding: 12px;
+            border-radius: 10px;
+
+            margin-bottom: 22px;
+
+            font-size: 13px;
+            color: #ffe8a1;
+        }
+
+        .group {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+
+            border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 11px;
+
+            outline: none;
+
+            background: rgba(255,255,255,0.1);
+            color: white;
+
+            font-size: 15px;
+        }
+
+        input::placeholder {
+            color: rgba(255,255,255,0.55);
+        }
+
+        input:focus {
+            border-color: #ff7b7b;
+            box-shadow: 0 0 0 3px rgba(255,100,100,0.15);
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+
+            border: none;
+            border-radius: 11px;
+
+            background: linear-gradient(135deg,#ff5f6d,#ff9966);
+
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(255,95,109,0.35);
+        }
+
+        .back {
+            display: block;
+            margin-top: 22px;
+
+            color: white;
+            text-decoration: none;
+
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .back:hover {
+            color: #ff9966;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <div class="icon">🗑️</div>
+
+    <h1>Delete User</h1>
+
+    <p class="subtitle">
+        Remove a user from the system
+    </p>
+
+    <div class="warning">
+        ⚠️ Please make sure the username is correct before deleting.
+    </div>
+
+    <form action="delete" method="post">
+
+        <div class="group">
+
+            <label for="username">
+                Username
+            </label>
+
+            <input type="text"
+                   id="username"
+                   name="username"
+                   placeholder="Enter username to delete"
+                   required>
+
+        </div>
+
+        <button type="submit">
+            Delete User
+        </button>
+
+    </form>
+
+    <a href="index.html" class="back">
+        ← Back to Dashboard
+    </a>
+
+</div>
+
+</body>
+</html>
